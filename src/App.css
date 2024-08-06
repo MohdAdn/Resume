@@ -1,9 +1,23 @@
 .container {
   width: 900px;
   height: 130vh;
-  background: linear-gradient(90deg, #ccccb2 0%, #757519 100%);
+  /* background: linear-gradient(90deg, #ccccb2 0%, #757519 100%); */
   border: 1px solid black;
   margin: 50px;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background-color: seagreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(8, 8, 72);
 }
 h1 {
   text-align: center;

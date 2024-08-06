@@ -2,47 +2,32 @@ import Education from "./Education";
 import Experience from "./Experience";
 import Skills from "./Skills";
 import Projects from "./projects";
+import { useState } from "react";
+import resume from "../Data/ResumeData";
 const Resume = () => {
-  const resume = {
-    experience: [
-      {
-        year: "2021-2024",
-        company: "Shadow Infosystem",
-        role: "Front End Developer",
-        monj: "06/2021",
-        lwd: "06/2024",
-      },
-    ],
-    education: [
-      {
-        course: "Btech",
-        year: 2019,
-        branch: "CSE",
-        college: "Ganeshi Lal Bajaj Institute",
-        place: "Greater Noida",
-      },
-    ],
-    skills: [
-      "Javascript",
-      "TypeScript",
-      "React jS",
-      "HTML",
-      "CSS",
-      "Redux",
-      "Problem Solving",
-    ],
-    projects: [
-      "https://rest-countries-infos.netlify.app/",
-      "https://internet-protocol-address-track.netlify.app/",
-      "https://online-movie-search.netlify.app/",
-      "https://advice-genration.netlify.app/",
-      "https://meme-gene-ration.netlify.app/",
-    ],
-  };
+  const [color, setColor] = useState("#111111");
+
+  function getColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.round(Math.random() * 16)];
+    }
+    return color;
+  }
+  function handleClick() {
+    setColor(getColor());
+  }
 
   return (
-    <div className="container">
+    <div style={{ backgroundColor: color }} className="container">
       <h1>My Resume</h1>
+      <button onClick={handleClick} className="btn">
+        Change Background{" "}
+      </button>
+      <button className="btn" onClick={() => window.print()}>
+        Print
+      </button>
       <hr />
       <div className="component">
         <Experience experience={resume.experience[0]}></Experience>
